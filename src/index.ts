@@ -1,12 +1,14 @@
+import TaskFactory from './patterns/TaskFactory';
 import TaskStorage from './storage/TaskStorage';
 
 console.log('🛠️ Task Manager CLI Iniciado...');
 
-const storage1 = TaskStorage.getInstance();
-storage1.addTask({ id: 1, title: 'Aprender Singleton', completed: false });
+const storage = TaskStorage.getInstance();
 
-const storage2 = TaskStorage.getInstance();
-console.log(storage2.getTasks());
+const task1 = TaskFactory.createTask('Resolver un bug', 'urgent');
+storage.addTask(task1);
 
-storage2.removeTask(1);
-console.log(storage2.getTasks());
+const task2 = TaskFactory.createTask('Escribir documentación', 'normal');
+storage.addTask(task2);
+
+console.log(storage.getTasks());

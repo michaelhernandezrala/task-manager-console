@@ -1,7 +1,8 @@
-type Task = {
-  id: number;
+type TaskType = 'urgent' | 'normal' | 'low';
+interface ITask {
   title: string;
+  priority: TaskType;
   completed: boolean;
-};
+}
 
-export default Task;
+export { ITask, TaskType };
